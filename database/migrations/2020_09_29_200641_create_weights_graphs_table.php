@@ -16,7 +16,7 @@ class CreateWeightsGraphsTable extends Migration
         Schema::create('weights_graphs', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->timestamp('current_weight');
+            $table->string('current_weight');
             $table->string('target_weight');
             $table->timestamps();
         });
