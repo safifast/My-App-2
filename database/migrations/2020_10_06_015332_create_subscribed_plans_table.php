@@ -17,6 +17,7 @@ class CreateSubscribedPlansTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('name');
+            $table->string('plan_id');
 
             $table->integer('mon1');
             $table->integer('mon2');

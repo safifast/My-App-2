@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <style>
 .preview-list.grid.columns-7,
 .preview-list.grid.columns-week {
@@ -223,5 +224,22 @@ $.ajax({
         $('#show_plan').html(data);
     }
 });
+
+function subcribePlan(id)
+{
+    $.ajax({
+        url: "/subcribePlan",
+        type:"POST",
+        data:{
+          id:id,
+          user_id:"{{auth()->user()->id}}",
+          _token: "{{ csrf_token() }}"
+        },
+        success:function(response){
+          console.log(response);
+        },
+    });
+
+}
 </script>
 @endsection

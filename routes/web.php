@@ -32,6 +32,7 @@ Route::post('/addReview', 'ReviewsController@AddReview')->name("addReview");
 Route::post('/updateKeto', 'MyPlanController@updateKeto')->name("updateKeto");
 Route::get('/getAllQuestions', 'ForumController@getAllQuestions')->name("getAllQuestions");
 Route::post('/getAnswer', 'ForumController@getAnswer')->name("getAnswer");
+Route::post('/subcribePlan', 'WeekPlanController@subcribePlan')->name("subcribePlan");
 
 Route::group(['middleware' => 'auth'] , function() {
 
