@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7COswald:400,700%7CDroid+Sans:400,700%7CRoboto:400,700%7CLato:400,700%7CPT+Sans:400,700%7CSource+Sans+Pro:400,600,700%7CNoto+Sans:400,700%7CPT+Sans:400,700%7CUbuntu:400,700%7CBitter:400,700%7CPT+Serif:400,700%7CRokkitt:400,700%7CDroid+Serif:400,700%7CRaleway:400,700%7CInconsolata:400,700" rel="stylesheet" type="text/css">
 <style>
     .irs{position:relative;display:block;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.irs-line{position:relative;display:block;overflow:hidden;outline:0!important}.irs-line-left,.irs-line-mid,.irs-line-right{position:absolute;display:block;top:0}.irs-line-left{left:0;width:11%}.irs-line-mid{left:9%;width:82%}.irs-line-right{right:0;width:11%}.irs-bar{position:absolute;display:block;left:0;width:0}.irs-bar-edge{position:absolute;display:block;top:0;left:0}.irs-shadow{position:absolute;display:none;left:0;width:0}.irs-slider{position:absolute;display:block;cursor:default;z-index:1}.irs-slider.type_last{z-index:2}.irs-min{position:absolute;display:block;left:0;cursor:default}.irs-max{position:absolute;display:block;right:0;cursor:default}.irs-from,.irs-single,.irs-to{position:absolute;display:block;top:0;left:0;cursor:default;white-space:nowrap}.irs-grid{position:absolute;display:none;bottom:0;left:0;width:100%;height:20px}.irs-with-grid .irs-grid{display:block}.irs-grid-pol{position:absolute;top:0;left:0;width:1px;height:8px;background:#000}.irs-grid-pol.small{height:4px}.irs-grid-text{position:absolute;bottom:0;left:0;white-space:nowrap;text-align:center;font-size:9px;line-height:9px;padding:0 3px;color:#000}.irs-disable-mask{position:absolute;display:block;top:0;left:-1%;width:102%;height:100%;cursor:default;background:rgba(0,0,0,0);z-index:2}.lt-ie9 .irs-disable-mask{background:#000;cursor:not-allowed}.irs-disabled{opacity:.4}.irs-hidden-input{position:absolute!important;display:block!important;top:0!important;left:0!important;width:0!important;height:0!important;font-size:0!important;line-height:0!important;padding:0!important;margin:0!important;overflow:hidden;outline:0!important;z-index:-9999!important;background:0 0!important;border-style:solid!important;border-color:transparent!important}
@@ -12,7 +14,11 @@
 /*# sourceMappingURL=ion.rangeSlider.skinHTML5.min.css.map */
 </style>
 <style>
-.hb-wrapper{
+.hb-wrapper {
+    background: #F8F8F7;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border-radius: 38px;
 }
 .hb-container{
     width: 70%;
@@ -233,8 +239,105 @@
         font-size: 14px;
     }
 }
+
+.modal-confirm {		
+		color: #636363;
+		width: 325px;
+		margin: 30px auto;
+	}
+	.modal-confirm .modal-content {
+		padding: 20px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-confirm .modal-header {
+		border-bottom: none;   
+        position: relative;
+	}
+	.modal-confirm h4 {
+		text-align: center;
+		font-size: 26px;
+		margin: 30px 0 -15px;
+	}
+	.modal-confirm .form-control, .modal-confirm .btn {
+		min-height: 40px;
+		border-radius: 3px; 
+	}
+	.modal-confirm .close {
+        position: absolute;
+		top: -5px;
+		right: -5px;
+	}	
+	.modal-confirm .modal-footer {
+		border: none;
+		text-align: center;
+		border-radius: 5px;
+		font-size: 13px;
+	}	
+	.modal-confirm .icon-box {
+		color: #fff;		
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: -70px;
+		width: 95px;
+		height: 95px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #82ce34;
+		padding: 15px;
+		text-align: center;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+	.modal-confirm .icon-box i {
+		font-size: 58px;
+		position: relative;
+		top: 3px;
+	}
+	.modal-confirm.modal-dialog {
+		margin-top: 80px;
+	}
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+		background: #82ce34;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+        border: none;
+    }
+	.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+		background: #6fb32b;
+		outline: none;
+	}
+	.trigger-btn {
+		display: inline-block;
+		margin: 100px auto;
+	}
+
 </style>
-<div class="calc-container">
+<div>
+<div class="container mt-5">
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE876;</i>
+                    </div>
+                    <h4 class="modal-title">Awesome!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">You have saved your keto results.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="hb-wrapper">
         <div class="hb-container">
             <form action="" name="calc" id="calc">
@@ -299,7 +402,7 @@
                 </div>
             </div>
             <div class="rhw-calc-button">
-                <input type="button" class="rhw-calc-btn" name="rhw-calc" id="rhw-calc" value="Calculer">
+                <input type="button" class="btn btn-outline-success" name="rhw-calc" id="rhw-calc" value="Calculer">
             </div>
             </form>
             <div class="rhw-section result-section hide">
@@ -326,11 +429,12 @@
                         <div class="rhw-sec-label">Lipides:</div>
                         <div class="rhw-sec-value" id="fat"></div>
                     </div>
-                    <button type="button" name="save-keto-res" id="save-keto-res" class="btn btn-success">Save Results</button>
+                    <button class="btn btn-outline-success" data-toggle="modal" data-target="#myModal" type="button" name="save-keto-res" id="save-keto-res" class="btn btn-success">Save Results</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script  >

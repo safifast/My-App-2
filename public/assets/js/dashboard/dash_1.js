@@ -166,7 +166,7 @@ var d_2options2 = {
 var options1 = {
   chart: {
     fontFamily: 'Nunito, sans-serif',
-    height: 365,
+    height: 265,
     type: 'area',
     zoom: {
         enabled: false
@@ -386,7 +386,8 @@ var options1 = {
 var options = {
     chart: {
         type: 'donut',
-        width: 380
+        width: 80,
+        hight: 65
     },
     colors: ['#556B2F', '#008000', '#9ACD32', '#e2a03f'],
     dataLabels: {
@@ -446,7 +447,7 @@ var options = {
     },
     stroke: {
       show: true,
-      width: 25,
+      width: 5,
     },
     series: [985.12, 737.12, 270.2],
     labels: ['Protines', 'Carbs', 'Fats'],
@@ -465,8 +466,8 @@ var options = {
         breakpoint: 1439,
         options: {
             chart: {
-                width: '250px',
-                height: '390px'
+                width: '210px',
+                height: '280px'
             },
             legend: {
                 position: 'bottom'

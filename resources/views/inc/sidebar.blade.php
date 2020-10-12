@@ -46,6 +46,33 @@
                     </a>
                 </li>
                  
+                <li class="menu single-menu  {{ ($category_name === 'week_plans') ? 'active' : '' }}">
+                    <a href="#Week_plan" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle autodroprown">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            <span>Week Plans</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <ul class="collapse submenu list-unstyled" id="Week_plan" data-parent="#topAccordion">
+                        <li class="{{ ($page_name === 'My_Week_Plan') ? 'active' : '' }}">
+                            <a href="/myplan"> My Week Plan </a>
+                        </li>
+                        <li class="{{ ($page_name === 'week_plans') ? 'active' : '' }}">
+                            <a href="/week_plans"> Week Plans </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu single-menu  {{ ($page_name === 'Recipes') ? 'active' : '' }}">
+                    <a href="/forum">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            <span>Forum </span>
+                        </div>
+                    </a>
+                </li>
+                 
                 @endif
             </ul>
         </nav>

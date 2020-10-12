@@ -36,7 +36,7 @@ class KetoController extends Controller
     {
         $res = DB::table('keto_results')->where('user_id', auth()->user()->id)->first();
 
-        return response()->json([$res->protein, $res->carbs, $res->fats]);
+        return response()->json([$res->protein, $res->carbs, $res->fats, $res->consumed_protein, $res->consumed_carbs, $res->consumed_fats ]);
     }
 
 }

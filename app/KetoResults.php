@@ -16,7 +16,7 @@ class KetoResults extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'protein', 'carbs', 'fats'
+        'user_id', 'protein', 'carbs', 'fats', 'consumed_protein', 'consumed_carbs', 'consumed_fats'
     ];
 
 }

@@ -19,6 +19,9 @@ class CreateKetoResultsTable extends Migration
             $table->string('protein');
             $table->string('carbs');
             $table->string('fats');
+            $table->string('consumed_protein');
+            $table->string('consumed_carbs');
+            $table->string('consumed_fats');
             $table->timestamps();
         });
     }

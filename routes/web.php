@@ -23,9 +23,15 @@ Route::get('/getResults', 'KetoController@getResults');
 Route::post('/saveTarget', 'WeightsTargetController@saveTarget')->name("saveTarget");
 Route::post('/saveWeights', 'WeightGraphController@saveWeights')->name("saveWeights");
 Route::post('/saveRecipe', 'RecipesController@saveRecipe')->name("saveRecipe");
-Route::get('/getRecipes', 'RecipesController@getRecipes')->name("getRecipes");
+Route::get('/getRecipes', 'RecipesController@getAllRecipe')->name("getRecipes");
 Route::post('/getRecipe', 'RecipesController@getRecipe')->name("getRecipe");
-
+Route::get('/SubscribedPlan', 'MyPlanController@getSubscribedPlan')->name("SubscribedPlan");
+Route::get('/getPlan/{id}', 'WeekPlanController@getPlan')->name("getPlan");
+Route::get('/getAllPlans', 'WeekPlanController@getAllPlans')->name("getAllPlans");
+Route::post('/addReview', 'ReviewsController@AddReview')->name("addReview");
+Route::post('/updateKeto', 'MyPlanController@updateKeto')->name("updateKeto");
+Route::get('/getAllQuestions', 'ForumController@getAllQuestions')->name("getAllQuestions");
+Route::post('/getAnswer', 'ForumController@getAnswer')->name("getAnswer");
 
 Route::group(['middleware' => 'auth'] , function() {
 
@@ -53,6 +59,66 @@ Route::group(['middleware' => 'auth'] , function() {
         ];
         // $pageName = 'analytics';
         return view('pages.KetoCalculator')->with($data);
+    });
+
+    Route::get('/forum', function() {
+        // $category_name = '';
+        $data = [
+            'category_name' => '',
+            'page_name' => 'Forum',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        // $pageName = 'analytics';
+        return view('pages.Forum')->with($data);
+    });
+
+
+    Route::get('/myplan', function() {
+        // $category_name = '';
+        $data = [
+            'category_name' => '',
+            'page_name' => 'MyPlan',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        // $pageName = 'analytics';
+        return view('pages.MyWeekPlan')->with($data);
+    });
+    Route::get('/week_plans', function() {
+        // $category_name = '';
+        $data = [
+            'category_name' => '',
+            'page_name' => 'week_plans',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        // $pageName = 'analytics';
+        return view('pages.WeekPlans')->with($data);
+    });
+
+    Route::get('/explore_plan/{id}', function() {
+        // $category_name = '';
+        $data = [
+            'category_name' => '',
+            'page_name' => 'ExploreWeekPlan',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        // $pageName = 'analytics';
+        return view('pages.ExploreWeekPlan')->with($data);
+    });
+
+    Route::get('/ForumAnswer/{id}', function() {
+        // $category_name = '';
+        $data = [
+            'category_name' => '',
+            'page_name' => 'ForumAnswer',
+            'has_scrollspy' => 0,
+            'scrollspy_offset' => '',
+        ];
+        // $pageName = 'analytics';
+        return view('pages.ForumAnswers')->with($data);
     });
 
     Route::get('/addRecipes', function() {

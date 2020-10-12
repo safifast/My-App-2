@@ -129,8 +129,8 @@ function my() {
 
                                 <div class="w-summary-stats">
                                     <div class="progress">
-                                        <div class="progress-bar color1" role="progressbar"
-                                            style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar1" class="progress-bar color1" role="progressbar"
+                                            style="width: 0" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@ function my() {
 
                                 <div class="w-summary-stats">
                                     <div class="progress">
-                                        <div class="progress-bar color3" role="progressbar"
-                                            style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar2" class="progress-bar color3" role="progressbar"
+                                            style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                     </div>
                                 </div>
@@ -187,8 +187,8 @@ function my() {
 
                                 <div class="w-summary-stats">
                                     <div class="progress">
-                                        <div class="progress-bar color2" role="progressbar"
-                                            style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar3" class="progress-bar color2" role="progressbar"
+                                            style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                     </div>
                                 </div>
@@ -314,22 +314,36 @@ function drawChart() {
 function updateResults() {
     var url = '/getResults';
     $.getJSON(url, function(response) {
-        $protein = response[0];
-        $carbs = response[1];
-        $fats = response[2];
-        $protein = $protein.slice(0, -1)
-        $carbs = $carbs.slice(0, -1)
-        $fats = $fats.slice(0, -1)
-        $protein = parseFloat($protein)
-        $carbs = parseFloat($carbs)
-        $fats = parseFloat($fats)
-        console.log($protein, $carbs, $fats)
+        var protein = response[0];
+        var carbs = response[1];
+        var fats = response[2];
+        var consumed_protein = response[3];
+        var consumed_carbs = response[4];
+        var consumed_fats = response[5];
+        protein = protein.slice(0, -1);
+        carbs = carbs.slice(0, -1);
+        fats = fats.slice(0, -1);
+        protein = parseFloat(protein);
+        carbs = parseFloat(carbs);
+        fats = parseFloat(fats);
+        consumed_protein = parseFloat(consumed_protein);
+        consumed_carbs = parseFloat(consumed_carbs);
+        consumed_fats = parseFloat(consumed_fats);
         chart.updateSeries([
-            $protein, $carbs, $fats
+            protein, carbs, fats
         ]);
-        $('#fats-count').text($fats + 'g')
-        $('#protein-count').text($protein + 'g')
-        $('#carbs-count').text($carbs + 'g')
+        var bar1 = (consumed_protein/protein)*100;
+        bar1 = bar1+'%';
+        var bar2 = (consumed_carbs/carbs)*100;
+        bar2 = bar2+'%';
+        var bar3 = (consumed_fats/fats)*100;
+        bar3 = bar3+'%';
+        $('#fats-count').text(consumed_fats + 'g')
+        $('#protein-count').text(consumed_protein + 'g')
+        $('#carbs-count').text(consumed_carbs + 'g')
+        $('#bar1').css("width", bar1);
+        $('#bar2').css("width", bar2);
+        $('#bar3').css("width", bar3);
     });
 
 }
