@@ -92,7 +92,7 @@ function my() {
                                     <input id="t-text" type="number" name="target-weight" placeholder="Enter Weight in Kg"
                                         class="form-control" required>
                                     
-                                        <input type="submit" id ="submit-btn" name="submit" value="Set" class="btn btn  -success mt-4" />
+                                        <input type="submit" id ="submit-btn" name="submit" value="Set" class="btn btn-success mt-4" />
                                 </div>
                             </form>
                         </div>
